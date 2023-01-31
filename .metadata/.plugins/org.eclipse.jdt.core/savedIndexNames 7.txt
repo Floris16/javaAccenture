@@ -1,0 +1,5 @@
+INDEX VERSION 1.131+C:\Users\Gabriele\iCloudDrive\Accenture\EclipseWorkspace\.metadata\.plugins\org.eclipse.jdt.core
+1706309322.index
+299199495.index
+2380175872.index
+1681203394.index

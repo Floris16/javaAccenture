@@ -1,0 +1,22 @@
+import java.util.Scanner;
+
+public class Es4 {
+	public static void main(String[] args) {
+		
+		double prezzo, tot;
+		int qta;
+		
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.println("Inserisci la quantità acquistata e il prezzo senza iva del prodotto");
+		
+		prezzo=sc.nextDouble();
+		qta=sc.nextInt();
+		
+		tot=prezzo*qta*1.22; //1.22 è convertito in float
+		
+		System.out.println("Il prezzo totale senza iva è " + (qta*prezzo) + ", mentre il prezzo compreso di iva è " + tot);
+
+		sc.close();
+	}
+}

@@ -1,0 +1,18 @@
+
+public class Es4Stringhe {
+	public static void main(String[] args) {
+		String in;
+		int punteggiatura=0;
+		
+		do {
+			in=Utilities.scanString();
+			for (int i=0; i<in.length(); i++)
+				switch (in.charAt(i)) { //(.,;:!?)
+				case '.': case ',': case ';': case ':': case '!': case '?':
+					punteggiatura++;
+				}	
+		} while(!in.isEmpty());
+		
+		System.out.println(punteggiatura);
+	}
+}

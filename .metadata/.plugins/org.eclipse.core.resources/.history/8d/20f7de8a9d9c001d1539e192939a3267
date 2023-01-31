@@ -1,0 +1,59 @@
+import java.util.Scanner;
+
+public class calendario {
+	public static void main(String[] args) {
+		
+		int giorno, mese;
+		System.out.println("Inserisci giorno e mese");
+		
+		giorno=leggi(0);
+		mese=leggi(1);
+		
+		
+	}
+	
+	public static int leggi(int i) {
+		Scanner sc = new Scanner(System.in);
+		int num;
+		
+		if (i==0) {
+			do {
+				num=sc.nextInt();
+			} while (!checkGiorno(num));
+			return num;
+		}
+		
+		do {
+			num=sc.nextInt();
+		} while (!checkMese(num));
+		
+		return num;
+	}
+	
+	public static boolean checkGiorno(int giorno) {
+		if (giorno<=0 || giorno>31) {
+			System.out.println("Giorno non valido");
+			return false;
+		}
+		return true;
+	}
+	
+	public static boolean checkMese(int mese) {
+		if (mese<=0 || mese >12) {
+			System.out.println("Mese non valido");
+			return false;
+		}
+		return true;
+	}
+	
+	public static boolean checkData(int giorno, int mese) {
+		switch (mese) {
+		case 2:
+			return !(giorno>28);
+		case 4: case 6: case 9: case 11:
+			return !(giorno>30);
+		default:
+			return true;
+		}
+	}
+}

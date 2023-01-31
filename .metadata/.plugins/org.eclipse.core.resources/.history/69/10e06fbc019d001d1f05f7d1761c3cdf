@@ -1,0 +1,53 @@
+import java.util.Scanner;
+
+public class Es1Array {
+	
+	public static void main(String[] args) {
+		
+		int n=leggi();
+		
+		System.out.println("Inserisci la dimensione dell'array:");
+		while (n<=0); {
+			System.out.println("L'indice che hai inserito è sbagliato");
+			n=leggi();
+		}
+		
+		int [] A= new int[n];
+		A=pop(A);
+		int [] B= new int[n];
+		B=inv(A);
+		
+		System.out.println("Array A:");
+		stampaArray(A);
+		
+		System.out.println("Array B:");
+		stampaArray(B);
+		
+	}
+	
+	public static int leggi() {
+		Scanner sc = new Scanner(System.in);
+		int n = sc.nextInt();
+		return n;
+	}
+	
+	public static int[] pop (int[] array) {
+		for (int i=0; i < array.length; i++)
+			array[i]=leggi();
+		return array;
+	}
+	
+	public static int[] inv (int[] array) {
+		int n=array.length-1;
+		int[] invertito = new int[n];
+		for (int i=0; i <= array.length; i++) {
+			invertito[n]=array[i];
+			n--;
+		}
+	}
+	
+	public static void stampaArray (int[] array) {
+		for (int i=0; i < array.length; i++)
+			System.out.println(array[i]);
+	}
+}

@@ -1,0 +1,13 @@
+package Es1Classi;
+
+import java.util.Scanner;
+
+public class Utilities {
+	public static String scanString() {
+	    Scanner sc = new Scanner(System.in);
+	    String stringaDaTastiera;
+	    System.out.println("Dammi una stringa: ");
+	    stringaDaTastiera=sc.nextLine();
+	    return stringaDaTastiera;
+	}
+}

@@ -1,0 +1,68 @@
+import java.util.Scanner;
+
+public class voti {
+
+	public static void main(String[] args) {
+		
+		int valore;//=leggiVoto();
+		double med=0;
+		
+		
+		for (int i=1; i<=10; i++) {
+			valore=leggiVoto();
+			med=media(valore, i);
+		}
+
+	}
+
+	public static double media(int val, int i) {
+		
+		double media;
+		
+		val=
+			
+		
+		
+		return media;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	public static int leggiVoto() {
+		
+		Scanner sc = new Scanner(System.in);
+		int voto;
+		
+		do {
+			voto=sc.nextInt();
+			
+			if (voto <= 18 || voto >=30)
+				System.out.println("Il numero che hai inserito è fuori dal range");
+			
+		} while (voto <= 18 || voto >=30);
+		
+		return voto;
+		
+	}
+	
+	
+	
+}

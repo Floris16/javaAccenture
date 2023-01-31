@@ -1,0 +1,30 @@
+
+public class Es3Stringhe {
+	public static void main(String[] args) {
+		String s1=Utilities.scanString();
+		
+		String v=vocali(s1);
+		
+		System.out.println(v);
+	}
+	
+	
+	public static String vocali(String str) {
+		int n=str.length();
+		char[] voc= new char[n];  //al piu ci possono essere n vocali
+		
+		for (int i=0; i<n; i++)
+			switch (str.charAt(i)) {
+			case 'a': case 'e': case 'i': case 'o': case 'u':
+			case 'A': case 'E': case 'I': case 'O': case 'U':
+				voc[i]=str.charAt(i);
+				break;
+			default:
+				voc[i]=' ';
+			}
+		
+		
+		String vocali=new String(voc);
+		return vocali.replace(" ", "");
+	}
+}

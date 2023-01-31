@@ -1,0 +1,41 @@
+import java.util.Scanner;
+
+public class media {
+	public static void main(String[] args) {
+		
+		System.out.println("Inserisci un numero:");
+		int num=leggi();
+		int primo=1;
+	
+		while (num>1) {
+			primo=scomp(num);
+			num/=primo;  
+			System.out.print(primo + " * ");   //2*2*3
+		}
+		
+	}
+	
+	public static int leggi() {
+		Scanner sc = new Scanner(System.in);
+		int num;
+		
+		do {
+			num=sc.nextInt();
+			
+			if (num <= 0)
+				System.out.println("Il numero che hai inserito è fuori dal range");
+		
+		} while (num <= 0);
+		
+		return num;
+	}
+	
+	
+	public static int scomp(int num) {
+		for (int i=2; i<num; i++) {
+			if (num%i==0)
+				return i;
+		}
+		return 1;
+	}
+}

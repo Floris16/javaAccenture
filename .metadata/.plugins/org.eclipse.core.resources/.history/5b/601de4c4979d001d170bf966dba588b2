@@ -1,0 +1,20 @@
+import java.util.Scanner;
+
+public class Es1Stringhe {
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+    	String str;
+    	do {
+    		System.out.println("Dammi una stringa: ");
+    		str=sc.nextLine();
+    	} while (!str.isEmpty());
+    	
+    	System.out.println(str);
+    	
+    	
+    	
+    	
+    	
+    	
+	}
+}
