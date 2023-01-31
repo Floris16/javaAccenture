@@ -25,7 +25,22 @@ public class Carta {
 		public int getValoreCarta() {
 			return valoreNum;
 		}
+		
+		
 	}
-	
+	 public enum SemeCarta {
+		 PICCHE(1),
+		 FIORI(2),
+		 QUADRI(3),
+		 CUORI(4);
+		 
+		 final private int prioritaSeme;
+		 
+		 private SemeCarta (int p) {
+			 this.prioritaSeme=p;
+		 }
+		 
+	 }
+	 
 	
 }

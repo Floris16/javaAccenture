@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class media {
+public class scomposizione {
 	public static void main(String[] args) {
 		
 		System.out.println("Inserisci un numero:");
