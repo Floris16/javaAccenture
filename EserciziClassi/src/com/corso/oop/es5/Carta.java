@@ -53,18 +53,6 @@ public class Carta {
 		this.valore=valore;
 		this.seme=seme;
 	}
-	public Carta (int valore, SemeCarta seme) {
-		this.valore=ValoreCarta.valueOf(Integer.toString(valore));
-		this.seme=seme;
-	}
-	public Carta (ValoreCarta valore, int seme) {
-		this.valore=valore;
-		this.seme=seme;
-	}
-	public Carta (int valore, int seme) {
-		this.valore=valore;
-		this.seme=seme;
-	}
 	
 	
 	public ValoreCarta getValore() {
@@ -80,9 +68,12 @@ public class Carta {
 	}
 	
 	public int compareTo(Carta carta) {
-		if (this.valore==carta.valore)
+		if (this.valore==carta.valore) {
 			if (this.seme==carta.seme)
 				return 0;
+			
+			return this.seme.prioritaSeme>carta.seme.prioritaSeme ? 1 : -1;
+		}
 		
 		return this.valore.valoreNum>carta.valore.valoreNum ? 1 : -1;
 	
