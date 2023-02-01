@@ -36,7 +36,7 @@ public class TestPersona {
 		
 		Persona p1 = new Persona(nome,cognome,codiceFiscale,dataNascita);
 		
-		System.out.println("La persona " + p1.nome + " ha " + p1.getAge() + " anni");
+		System.out.println("La persona " + p1.getNome() + " ha " + p1.getAge() + " anni");
 	}
 	
 	
