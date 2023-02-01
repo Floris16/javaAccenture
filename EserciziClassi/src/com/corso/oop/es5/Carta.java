@@ -28,19 +28,51 @@ public class Carta {
 		
 		
 	}
-	 public enum SemeCarta {
-		 PICCHE(1),
-		 FIORI(2),
-		 QUADRI(3),
-		 CUORI(4);
-		 
-		 final private int prioritaSeme;
-		 
-		 private SemeCarta (int p) {
-			 this.prioritaSeme=p;
-		 }
-		 
-	 }
-	 
+	public enum SemeCarta {
+		PICCHE(1),
+		FIORI(2),
+		QUADRI(3),
+		CUORI(4);
+		
+		final private int prioritaSeme;
+		
+		private SemeCarta (int p) {
+			this.prioritaSeme=p;
+		}
+		
+		public int getPrioritaSeme() {
+			return prioritaSeme;
+		}
+	}
+	
+	final ValoreCarta valore;
+	final SemeCarta seme;
+	
+	
+	public Carta (ValoreCarta valore, SemeCarta seme) {
+		this.valore=valore;
+		this.seme=seme;
+	}
+	
+	public ValoreCarta getValore() {
+		return valore;
+	}
+	public SemeCarta getSeme() {
+		return seme;
+	}
+
+	@Override
+	public String toString() {
+		return "Carta [valore=" + valore + ", seme=" + seme + "]";
+	}
+	
+	public int compareTo(Carta carta) {
+		if (this.valore==carta.valore)
+			if (this.seme==carta.seme)
+				return 0;
+		
+		return this.valore.valoreNum>carta.valore.valoreNum ? 1 : -1;
+	
+	}
 	
 }
