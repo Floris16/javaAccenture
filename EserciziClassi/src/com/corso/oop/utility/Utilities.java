@@ -36,7 +36,7 @@ public class Utilities {
         return false;
     }
 	
-	public static int leggi() {
+	public static int leggiInt() {
 
 		Scanner sc = new Scanner(System.in);
 		sc.close();

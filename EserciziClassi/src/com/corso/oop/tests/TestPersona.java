@@ -1,7 +1,5 @@
 package com.corso.oop.tests;
 
-import java.util.Date;
-
 import com.corso.oop.entities.Persona;
 import com.corso.oop.utility.Utilities;
 
@@ -20,21 +18,19 @@ public class TestPersona {
 		System.out.println("Mese di nascita:");
 			
 		do {
-			g=Utilities.leggi();
-			m=Utilities.leggi();
+			g=Utilities.leggiInt();
+			m=Utilities.leggiInt();
 		} while (!Utilities.checkData(m, g));
 		
 		int a;
 		System.out.println("Anno di nascita:");
 		do {
-			a=Utilities.leggi();
+			a=Utilities.leggiInt();
 			if (a<1900 || a>2022)
 				System.err.println("Anno non valido");
 		} while (a<1900 || a>2022); //voglio escludere a priori il 2023
 		
-		Date dataNascita=new Date (a-1900,m-1,g);
-		
-		Persona p1 = new Persona(nome,cognome,codiceFiscale,dataNascita);
+		Persona p1 = new Persona(nome,cognome,codiceFiscale,g,m,a);
 		
 		System.out.println("La persona " + p1.getNome() + " ha " + p1.getAge() + " anni");
 	}

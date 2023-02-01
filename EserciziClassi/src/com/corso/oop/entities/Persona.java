@@ -9,11 +9,18 @@ public class Persona {
 	String codiceFiscale;
 	Date dataNascita;
 	
-	public Persona(String n, String c, String cF, Date dN) {
+	public Persona() {
+		nome="";
+		cognome="";
+		codiceFiscale="";
+		dataNascita=new Date();
+	}
+	
+	public Persona(String n, String c, String cF, int g, int m, int a) {
 		nome=n;
 		cognome=c;
 		codiceFiscale=cF;
-		dataNascita=dN;
+		dataNascita=new Date (a-1900,m-1,g);
 	}
 	
 	
@@ -65,4 +72,12 @@ public class Persona {
 		
 		return age;
 	}
+
+	@Override
+	public String toString() {
+		return "Persona [nome=" + nome + ", cognome=" + cognome + ", codiceFiscale=" + codiceFiscale + ", dataNascita="
+				+ dataNascita + "]";
+	}
+	
+	
 }

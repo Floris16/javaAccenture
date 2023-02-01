@@ -15,6 +15,22 @@ public class Giocatore {
 	public int getPunteggio() {
 		return punteggio;
 	}
+
+	public Carta getCartainmano() {
+		return cartainmano;
+	}
+
+	public void setCartainmano(Carta cartainmano) {
+		this.cartainmano = cartainmano;
+	}
+
+	public String getNome() {
+		return nome;
+	}
+
+	public void setPunteggio(int punteggio) {
+		this.punteggio = punteggio;
+	}
 	
 	
 }
