@@ -1,4 +1,4 @@
-package Es1Classi;
+package com.corso.oop.utility;
 
 import java.util.Scanner;
 
@@ -8,6 +8,8 @@ public class Utilities {
 	    String stringaDaTastiera;
 	    System.out.println(str);
 	    stringaDaTastiera=sc.nextLine();
+	    
+	    sc.close();
 	    return stringaDaTastiera;
 	}
 	
@@ -37,6 +39,7 @@ public class Utilities {
 	public static int leggi() {
 
 		Scanner sc = new Scanner(System.in);
+		sc.close();
 		return sc.nextInt();
 		
 	}

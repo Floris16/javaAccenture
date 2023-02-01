@@ -1,9 +1,9 @@
-package com.corso.oop.es5;
+package com.corso.oop.entities;
 
 import java.util.Arrays;
 import java.util.Random;
 
-import com.corso.oop.es5.Carta.*;
+import com.corso.oop.entities.Carta.*;
 
 public class MazzoCarte {
 	

@@ -1,8 +1,8 @@
-package com.corso.oop.es4;
+package com.corso.oop.tests;
 
 import java.util.Random;
 
-import com.corso.oop.es4.Film.MPAA;
+import com.corso.oop.entities.Film;
 
 public class TestFilm {
 	public static void main(String[] args) {

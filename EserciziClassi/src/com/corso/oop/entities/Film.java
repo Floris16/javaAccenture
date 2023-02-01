@@ -1,4 +1,4 @@
-package com.corso.oop.es4;
+package com.corso.oop.entities;
 
 public class Film {
 	

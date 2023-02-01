@@ -1,4 +1,6 @@
-package com.corso.oop.es2gr5;
+package com.corso.oop.tests;
+
+import com.corso.oop.entities.Auto;
 
 public class TestAuto {
 

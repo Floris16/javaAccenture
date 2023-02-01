@@ -1,6 +1,8 @@
-package com.corso.oop.es3;
+package com.corso.oop.tests;
 
 import java.util.Scanner;
+
+import com.corso.oop.entities.BarcaAMotore;
 
 public class TestBarca {
 	public static void main(String[] args) {

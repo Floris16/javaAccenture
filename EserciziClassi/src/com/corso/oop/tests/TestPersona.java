@@ -1,8 +1,11 @@
-package Es1Classi;
+package com.corso.oop.tests;
 
 import java.util.Date;
 
-public class Es1Main {
+import com.corso.oop.entities.Persona;
+import com.corso.oop.utility.Utilities;
+
+public class TestPersona {
 	public static void main(String[] args) {
 		
 		System.out.println("Benvenuto nella classe Persona");

@@ -1,4 +1,4 @@
-package com.corso.oop.es3;
+package com.corso.oop.entities;
 
 public class BarcaAMotore {
 	

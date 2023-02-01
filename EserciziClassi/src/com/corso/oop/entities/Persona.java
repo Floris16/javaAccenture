@@ -1,4 +1,4 @@
-package com.corso.oop.es1;
+package com.corso.oop.entities;
 
 import java.util.Date;
 

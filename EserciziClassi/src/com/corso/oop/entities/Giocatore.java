@@ -1,4 +1,4 @@
-package com.corso.oop.es5;
+package com.corso.oop.entities;
 
 public class Giocatore {
 	String nome;

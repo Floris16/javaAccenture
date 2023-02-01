@@ -1,4 +1,4 @@
-package com.corso.oop.es2gr5;
+package com.corso.oop.entities;
 
 public class Auto {
 
