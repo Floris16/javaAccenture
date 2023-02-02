@@ -49,6 +49,9 @@ public class TestCartoleria {
 	    
 	    cart.stampaArticoli(cart.ricercaColorePenna("Blu"));
 	    
+	    
+	    
+	    
 	}
     
 }
