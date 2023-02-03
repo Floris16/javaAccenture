@@ -1,21 +1,24 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
     <fullyQualifiedTypeName name="Hello"/>
-    <fullyQualifiedTypeName name="java.lang.System"/>
     <fullyQualifiedTypeName name="voti"/>
-    <fullyQualifiedTypeName name="java.util.Random"/>
     <fullyQualifiedTypeName name="Utilities"/>
     <fullyQualifiedTypeName name="java.sql.Date"/>
-    <fullyQualifiedTypeName name="java.util.Date"/>
     <fullyQualifiedTypeName name="com.corso.oop.entities.MazzoCarte"/>
     <fullyQualifiedTypeName name="javax.swing.text.Utilities"/>
-    <fullyQualifiedTypeName name="com.corso.oop.utility.Utilities"/>
     <fullyQualifiedTypeName name="java.util.Scanner"/>
-    <fullyQualifiedTypeName name="com.corso.oop.entities.Carta"/>
     <fullyQualifiedTypeName name="com.corso.oop.entities.Giocatore"/>
     <fullyQualifiedTypeName name="com.corso.oop.entities.Impiegato"/>
     <fullyQualifiedTypeName name="java.nio.file.spi.FileSystemProvider"/>
     <fullyQualifiedTypeName name="com.corso.oop.entities.Fattura"/>
+    <fullyQualifiedTypeName name="com.corso.oop.entities.Carta"/>
+    <fullyQualifiedTypeName name="java.util.Date"/>
+    <fullyQualifiedTypeName name="java.lang.reflect.Array"/>
     <fullyQualifiedTypeName name="java.util.ArrayList"/>
     <fullyQualifiedTypeName name="com.corso.oop.entities.Articolo"/>
+    <fullyQualifiedTypeName name="java.lang.System"/>
+    <fullyQualifiedTypeName name="java.util.Random"/>
+    <fullyQualifiedTypeName name="com.corso.oop.entities.Ordine"/>
+    <fullyQualifiedTypeName name="com.corso.oop.entities.Cartoleria"/>
+    <fullyQualifiedTypeName name="com.corso.oop.utility.Utilities"/>
 </qualifiedTypeNameHistroy>

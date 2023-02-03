@@ -1,6 +1,5 @@
 package com.corso.oop.entities;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class Cartoleria {
@@ -161,6 +160,4 @@ public class Cartoleria {
 	public String toString() {
 		return "Cartoleria [magazzino=" + magazzino + "]";
 	}
-	
-	
 }

@@ -1,10 +1,13 @@
 package com.corso.oop.entities;
 
 public class Articolo {
-	String marca;
-	String modello;
-	double costo;
+	protected String marca;
+	protected String modello;
+	protected double costo;
 	private double prezzoVendita;
+	protected int numeroArticolo;
+	private static int nextArt=1;
+	
 	
 	public Articolo() {
 		this.marca="";
@@ -16,6 +19,7 @@ public class Articolo {
 		this.modello = modello;
 		this.costo = costo;
 		this.prezzoVendita=costo*2;
+		this.numeroArticolo=nextArt++;
 	}
 
 	public String getMarca() {

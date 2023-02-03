@@ -7,17 +7,17 @@ public class Azienda extends Cliente{
 		super();
 	}
 
-	public Azienda(String nome, double conto) {
-		super(nome);
+	public Azienda(String denominazione, double conto) {
+		super(denominazione);
 		this.conto=conto;
 	}
 	
-	public void scalaSoldi(double prezzo) {
+	public boolean scalaSoldi(double prezzo) {
 		if (prezzo>this.conto) {
 			System.out.println("Non hai abbastanza soldi.");
-			return;
+			return false;
 		}
-		
 		this.conto-=prezzo;
+		return super.scalaSoldi(prezzo);
 	}
 }

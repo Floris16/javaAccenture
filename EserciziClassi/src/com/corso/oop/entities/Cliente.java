@@ -1,18 +1,22 @@
 package com.corso.oop.entities;
 
-public class Cliente {
-	final String nome;
+public abstract class Cliente {
+	final String denominazione;
 	
 	
 	public Cliente() {
-		this.nome="";
+		this.denominazione="";
 	}
 	
 	public Cliente(String nome) {
-		this.nome=nome;;
+		this.denominazione=nome;;
 	}
 
 	public String getNome() {
-		return nome;
+		return denominazione;
+	}
+	
+	public boolean scalaSoldi(double prezzo) {
+		return true;
 	}
 }

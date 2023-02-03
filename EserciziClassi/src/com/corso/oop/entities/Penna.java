@@ -15,7 +15,7 @@ public class Penna extends Articolo {
 
 	@Override
 	public String toString() {
-		return "Penna [marca=" + marca + ", modello=" + modello + ", costo=" + costo + ", prezzoVendita="
+		return "Penna [numArticolo=" + numeroArticolo + ", marca=" + marca + ", modello=" + modello + ", costo=" + costo + ", prezzoVendita="
 				+ this.getPrezzoVendita() + ", colore=" + colore + "]";
 	}
 

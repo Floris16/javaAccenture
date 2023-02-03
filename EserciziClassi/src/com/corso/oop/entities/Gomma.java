@@ -16,7 +16,7 @@ public class Gomma extends Articolo{
 
 	@Override
 	public String toString() {
-		return "Gomma [marca=" + marca + ", modello=" + modello + ", costo=" + costo + ", prezzoVendita="
+		return "Gomma [numArticolo=" + numeroArticolo + ", marca=" + marca + ", modello=" + modello + ", costo=" + costo + ", prezzoVendita="
 				+ this.getPrezzoVendita() + ", dimensioni=" + dimensioni + ", forma=" + forma + "]";
 	}
 }
