@@ -10,6 +10,20 @@ public class Cartoleria {
 		this.magazzino=new ArrayList<Articolo>();
 	}
 	
+	
+	
+	public ArrayList<Articolo> getMagazzino() {
+		return magazzino;
+	}
+
+
+
+	public int getIndexOf() {
+		return indexOf;
+	}
+
+
+
 	public void caricaArticolo(Articolo myArt) {
 		this.magazzino.add(myArt);
 	}

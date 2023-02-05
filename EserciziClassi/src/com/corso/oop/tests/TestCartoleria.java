@@ -43,55 +43,33 @@ public class TestCartoleria {
 	    
 	    cart.ricercaModello("Pilot");
 	    
-	    //System.out.println(cart.ricercaModello("Pilot").toString());
-	    
 	    cart.stampaArticoli(cart.ricercaModello("Pilot"));
 	    System.out.println(cart.toString());
 	    
 	    
-	    
-	    System.out.println("E' entrata una nuova azienda per effettuare un ordine!");
-	    Azienda a1 = new Azienda("Accenture", 25000);
-	    
-	    System.out.println(a1.getNome()+" vorrebbe comprare tutte le penne blu.");
-	    
-	    cart.stampaArticoli(cart.ricercaColorePenna("Blu"));
-	    
-	    System.out.println("Ok, creiamo un nuovo ordine");
-	    
-	    //Ordine o1 = new Ordine(a1);
-	    
-	    
-	    
-	    System.out.println("Verifico se l'ordine può essere evaso");
-	    //o1.chiudiOrdine(o1.calcolaTot());
-	    
-	    int sclt=0;
-	    
+	    int scelta=0;
+	    Ordine o1 = new Ordine();	    
 		do {
 
-			// TEST_Cartoleria.scelta=100;
 
 			System.out.println("\ninserisci la tua scelta:\n" 
 					+ "1)Lista articoli;\n" 
 					+ "2)Ricerca Marca;\n"
 					+ "3)Ricerca Modello;\n"
 					+ "4)Ricerca Articolo (marca,modello);\n"
-					+ "5)Aggiungi articolo al carrello;\n"
+					+ "5)Crea ordine e aggiungi articoli al carrello;\n"
 					+ "6)Evadi ordine;\n"
 					+ "7)Stampa costi totali;\n"
-					+ "8)Stampa ricavi totali\n" 
-					+ "9)Scarica articolo da codice\n");
+					+ "8)Stampa ricavi totali\n" );
 
-			sclt = Utilities.leggiInt();
-			System.out.println("sclt" + sclt);
+			scelta = Utilities.leggiInt();
 			
 			String str="";
 
-			switch (sclt) {
+			switch (scelta) {
 
 			case 1:
-				cart.toString();
+				cart.stampaArticoli();
 				break;
 			case 2:
 				str = Utilities.scanString("inserisci marca: ");
@@ -106,49 +84,85 @@ public class TestCartoleria {
 				cart.stampaArticoli(cart.ricercaMarca(str));
 				str = Utilities.scanString("inserisci modello: ");
 				cart.stampaArticoli(cart.ricercaMarca(str));
+				break;
 			case 5:
-				System.out.println("Sei un privato o un'azienda? (1 o 2)");
-				int i=Utilities.leggiInt();
-				switch (i) {
-				case 1:
-					str=Utilities.scanString("Inserisci il tuo nome");
-					Privato pr1 = new Privato(str);
-					Ordine o1 = new Ordine(pr1);
-					str=Utilities.scanString("Cosa vuoi aggiungere nell'ordine?");
-					i=
-				}
+				o1 = creaOrdine(cart);
+				break;
 				
 			case 6:
-				String marca2, modello2, nomeAz, PIVA;
-				int anno2, mese2, giorno2;
-				System.out.println("inserisci marca: ");
-				marca2 = sc.nextLine();
-				System.out.println("inserisci modello");
-				modello2 = sc.nextLine();
-				System.out.println("inserisci nome azienda");
-				nomeAz = sc.nextLine();
-				System.out.println("inserisci nome azienda");
-				PIVA = sc.nextLine();
-				System.out.println("inserisci anno");
-				anno2 = sc.nextInt();
-				System.out.println("inserisci mese");
-				mese2 = sc.nextInt();
-				System.out.println("inserisci giorno");
-				giorno2 = sc.nextInt();
-				cart.ordinaArticoloDaAzienda(marca2, modello2, nomeAz, PIVA, anno2, mese2, giorno2);
+				if (o1.getCliente()==null) {
+					System.out.println("Non hai creato ancora l'ordine");
+					break;
+				}
+				o1.chiudiOrdine(o1.calcolaTot());
+				break;
 			case 7:
-				cart.stampaCostiTotali();
+				cart.stampaCosti();
+				break;
 			case 8:
-				cart.stampaRicaviTotali();
-			case 9:
-				String codice2;
-				System.out.println("inserisci codice per rimuovere");
-				codice2 = sc.nextLine();
-				Cartoleria.scaricaArticolo(codice2);
+				cart.stampaRicavi();
+				break;
+			default:
+				System.err.println("Input sbagliato!");
 			}
-
-		} while (sclt != 0);
+		} while (scelta != 0);
 
 	}
+	
+	public static Ordine creaOrdine (Cartoleria cart){
+		System.out.println("Sei un privato o un'azienda? (1 o 2)");
+		int i = Utilities.leggiInt();
+		String str = "";
+		Ordine o1=new Ordine();
+		
+		do {
+			switch (i) {
+			case 1: 
+				str=Utilities.scanString("Inserisci il tuo nome");
+				Privato pr1 = new Privato(str);
+				o1.setCliente(pr1);
+				System.out.println("Che articolo vuoi aggiungere?");
+				o1=aggiungiArticolo(cart,o1);
+				break;
+			
+			case 2: 
+				str=Utilities.scanString("Inserisci il nome dell'azienda");
+				Azienda az1 = new Azienda (str, Utilities.generaDouble());
+				o1.setCliente(az1);
+				System.out.println("Che articolo vuoi aggiungere?");
+				o1=aggiungiArticolo(cart,o1);
+				break;
 
+			default:
+				System.err.println("Input non valido");
+				System.out.println("Inserisci un numero che sia 1 o 2!!");
+				i=Utilities.leggiInt();
+			} 
+		} while (i==1 || i==2);
+		
+		return o1;
+		
+		
+	}
+	
+	public static Ordine aggiungiArticolo(Cartoleria cart, Ordine myOrd) {
+		int i = 0;
+		boolean cond;
+		do {
+			System.out.println("Inserisci il codice dell'articolo da aggiungere " +
+					"al tuo ordine (digita zero per stampare la lista degli articoli)");
+			i=Utilities.leggiInt();
+			if (i==0)
+				cart.stampaArticoli();
+			i=Utilities.leggiInt();
+			myOrd.aggiungiArticolo(cart.getMagazzino().get(i)); 
+			cart.scaricaArticolo(cart.getMagazzino().get(i));
+			
+			System.out.println("Vuoi aggiungere altro? 1=si");
+			i=Utilities.leggiInt();
+			cond  = (i==1) ? true : false;
+		} while (cond);
+		return myOrd;
+	}
 }
+

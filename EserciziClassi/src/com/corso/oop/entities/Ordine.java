@@ -13,12 +13,41 @@ public class Ordine {
 	private static int nextOrdine=1;
 	
 
+	public Cliente getCliente() {
+		return cliente;
+	}
+
+
+	public void setCliente(Cliente cliente) {
+		this.cliente = cliente;
+	}
+
+
+	public Ordine() {
+		this.dataOrdine = new Date();
+		this.numero = nextOrdine++;
+		this.cliente = null;
+		this.listaArticoli = new ArrayList<Articolo>();
+		this.effettuato = false;
+	}
+	
+	
 	public Ordine(Cliente cliente) {
 		this.dataOrdine = new Date();
 		this.numero = nextOrdine++;
 		this.cliente = cliente;
 		this.listaArticoli = new ArrayList<Articolo>();
 		this.effettuato = false;
+	}
+	
+	
+	//questo costruttore mi serve per creare una copia dell'ordine, necessaria nella classe test
+	public Ordine(Ordine myOrdine) {
+		this.dataOrdine=myOrdine.dataOrdine;
+		this.numero=myOrdine.numero;
+		this.cliente=myOrdine.cliente;
+		this.listaArticoli=myOrdine.listaArticoli;
+		this.effettuato=myOrdine.effettuato;
 	}
 	
 	public double calcolaTot() {

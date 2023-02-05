@@ -1,5 +1,6 @@
 package com.corso.oop.utility;
 
+import java.util.Random;
 import java.util.Scanner;
 
 public class Utilities {
@@ -9,7 +10,6 @@ public class Utilities {
 	    System.out.println(str);
 	    stringaDaTastiera=sc.nextLine();
 	    
-	    sc.close();
 	    return stringaDaTastiera;
 	}
 	
@@ -39,8 +39,12 @@ public class Utilities {
 	public static int leggiInt() {
 
 		Scanner sc = new Scanner(System.in);
-		sc.close();
 		return sc.nextInt();
 		
+	}
+	
+	public static double generaDouble() {
+		Random rng = new Random();
+		return rng.nextDouble(150,30001);
 	}
 }

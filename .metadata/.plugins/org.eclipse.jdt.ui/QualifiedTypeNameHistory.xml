@@ -18,7 +18,7 @@
     <fullyQualifiedTypeName name="com.corso.oop.entities.Articolo"/>
     <fullyQualifiedTypeName name="java.lang.System"/>
     <fullyQualifiedTypeName name="java.util.Random"/>
-    <fullyQualifiedTypeName name="com.corso.oop.entities.Ordine"/>
     <fullyQualifiedTypeName name="com.corso.oop.entities.Cartoleria"/>
+    <fullyQualifiedTypeName name="com.corso.oop.entities.Ordine"/>
     <fullyQualifiedTypeName name="com.corso.oop.utility.Utilities"/>
 </qualifiedTypeNameHistroy>

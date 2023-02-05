@@ -21,6 +21,14 @@ public class Articolo {
 		this.prezzoVendita=costo*2;
 		this.numeroArticolo=nextArt++;
 	}
+	
+	public Articolo(Articolo myArt) {
+		this.marca = myArt.marca;
+		this.modello = myArt.modello;
+		this.costo = myArt.costo;
+		this.prezzoVendita=myArt.prezzoVendita;
+		this.numeroArticolo=myArt.numeroArticolo;
+	}
 
 	public String getMarca() {
 		return marca;
