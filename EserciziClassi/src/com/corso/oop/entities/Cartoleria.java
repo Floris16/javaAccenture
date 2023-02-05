@@ -39,6 +39,14 @@ public class Cartoleria {
 	
 	public void scaricaArticolo(int index) {
 		this.magazzino.remove(index);
+		
+		//questa parte mi serve per aggiornare il numero dell'articolo
+		int i=index;
+		for (Articolo thisArt : this.magazzino)
+			if (thisArt.getNumeroArticolo()>i) {
+				thisArt.numeroArticolo--;
+				i++;
+			}
 	}
 	
 	
@@ -58,10 +66,19 @@ public class Cartoleria {
 		return -1;
 	}
 	
+	public ArrayList<Integer> ricercaArticoli(String marca, String modello) {
+		ArrayList<Integer> articoli = new ArrayList<Integer>();
+		for (Articolo thisArt : this.magazzino)
+			if ((marca.equals(thisArt.getMarca())) && (modello.equals(thisArt.getModello())))
+				articoli.add(this.magazzino.indexOf(thisArt));
+		System.out.println("Trovati " + articoli.size());
+		return articoli;
+	}
+	
 	public ArrayList<Integer> ricercaMarca(String marca) {
 		ArrayList<Integer> marche = new ArrayList<Integer>();
 		for (Articolo thisArt : this.magazzino)
-			if (marca.equals(thisArt.getModello()))
+			if (marca.equalsIgnoreCase(thisArt.getMarca()))
 				marche.add(this.magazzino.indexOf(thisArt));
 		System.out.println("Trovati " + marche.size());
 		return marche;	
@@ -70,11 +87,14 @@ public class Cartoleria {
 	public ArrayList<Integer> ricercaModello(String modello) {
 		ArrayList<Integer> modelli = new ArrayList<Integer>();
 		for (Articolo thisArt : this.magazzino)
-			if (modello.equals(thisArt.getModello()))
+			if (modello.equalsIgnoreCase(thisArt.getModello()))
 				modelli.add(this.magazzino.indexOf(thisArt));
 		System.out.println("Trovati " + modelli.size());
 		return modelli;	
 	}
+	
+	
+	//da qui i prossimi metodi di ricerca non sono stati utilizzati nel test
 	
 	public ArrayList<Integer> ricercaPerPrezzi(double prezzo) {
 		ArrayList<Integer> costi = new ArrayList<Integer>();

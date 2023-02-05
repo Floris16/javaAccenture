@@ -60,11 +60,13 @@ public class TestCartoleria {
 					+ "5)Crea ordine e aggiungi articoli al carrello;\n"
 					+ "6)Evadi ordine;\n"
 					+ "7)Stampa costi totali;\n"
-					+ "8)Stampa ricavi totali\n" );
+					+ "8)Stampa ricavi totali\n" 
+					+ "0)Esci");
 
 			scelta = Utilities.leggiInt();
 			
 			String str="";
+			String str1="";
 
 			switch (scelta) {
 
@@ -77,14 +79,18 @@ public class TestCartoleria {
 				break;
 			case 3:
 				str = Utilities.scanString("inserisci modello: ");
-				cart.stampaArticoli(cart.ricercaMarca(str));
+				cart.stampaArticoli(cart.ricercaModello(str));
 				break;
 			case 4:
 				str = Utilities.scanString("inserisci marca: ");
-				cart.stampaArticoli(cart.ricercaMarca(str));
-				str = Utilities.scanString("inserisci modello: ");
-				cart.stampaArticoli(cart.ricercaMarca(str));
+				str1 = Utilities.scanString("inserisci modello: ");
+				
+				cart.stampaArticoli(cart.ricercaArticoli(str,str1));
 				break;
+				
+				
+				
+				//tutti gli altri metodi di ricerca all'interno di cartoleria non sono stati implementati
 			case 5:
 				o1 = creaOrdine(cart);
 				break;
@@ -102,6 +108,9 @@ public class TestCartoleria {
 			case 8:
 				cart.stampaRicavi();
 				break;
+			case 0:
+				System.out.println("Stai uscendo dal programma"); 
+				return;
 			default:
 				System.err.println("Input sbagliato!");
 			}
@@ -138,7 +147,7 @@ public class TestCartoleria {
 				System.out.println("Inserisci un numero che sia 1 o 2!!");
 				i=Utilities.leggiInt();
 			} 
-		} while (i==1 || i==2);
+		} while (i!=1 && i!=2);
 		
 		return o1;
 		
@@ -150,16 +159,20 @@ public class TestCartoleria {
 		boolean cond;
 		do {
 			System.out.println("Inserisci il codice dell'articolo da aggiungere " +
-					"al tuo ordine (digita zero per stampare la lista degli articoli)");
+					"al tuo ordine (digita -1 per stampare la lista degli articoli)");
 			i=Utilities.leggiInt();
-			if (i==0)
+			if (i==-1) {
 				cart.stampaArticoli();
-			i=Utilities.leggiInt();
+				i=Utilities.leggiInt();
+			}
 			myOrd.aggiungiArticolo(cart.getMagazzino().get(i)); 
 			cart.scaricaArticolo(cart.getMagazzino().get(i));
 			
 			System.out.println("Vuoi aggiungere altro? 1=si");
 			i=Utilities.leggiInt();
+			
+			cart.stampaArticoli();
+			
 			cond  = (i==1) ? true : false;
 		} while (cond);
 		return myOrd;

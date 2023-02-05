@@ -6,7 +6,7 @@ public class Articolo {
 	protected double costo;
 	private double prezzoVendita;
 	protected int numeroArticolo;
-	private static int nextArt=1;
+	private static int nextArt=0;
 	
 	
 	public Articolo() {
@@ -28,6 +28,16 @@ public class Articolo {
 		this.costo = myArt.costo;
 		this.prezzoVendita=myArt.prezzoVendita;
 		this.numeroArticolo=myArt.numeroArticolo;
+	}
+	
+	
+
+	public int getNumeroArticolo() {
+		return numeroArticolo;
+	}
+
+	public void setNumeroArticolo(int numeroArticolo) {
+		this.numeroArticolo = numeroArticolo;
 	}
 
 	public String getMarca() {
