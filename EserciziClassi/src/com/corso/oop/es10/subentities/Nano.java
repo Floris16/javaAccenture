@@ -1,6 +1,7 @@
-package com.lotr;
+package com.corso.oop.es10.subentities;
 
-import com.lotr.enums.Armi;
+import com.corso.oop.es10.entities.Guerriero;
+import com.corso.oop.es10.enums.Armi;
 
 public class Nano extends Guerriero {
 	private static final int FORZA = 9;

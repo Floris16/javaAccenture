@@ -1,4 +1,4 @@
-package com.lotr.contracts;
+package com.corso.oop.es10.interfaces;
 
 import java.util.Random;
 

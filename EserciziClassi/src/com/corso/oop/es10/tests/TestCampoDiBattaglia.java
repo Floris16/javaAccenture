@@ -1,4 +1,4 @@
-package com.lotr;
+package com.corso.oop.es10.tests;
 
 public class TestCampoDiBattaglia {
 	public static void main(String[] args) {

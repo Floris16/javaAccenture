@@ -1,4 +1,4 @@
-package com.lotr;
+package com.corso.oop.es10.utility;
 
 import java.util.Scanner;
 

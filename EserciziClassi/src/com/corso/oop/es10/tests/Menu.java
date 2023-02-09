@@ -1,4 +1,7 @@
-package com.lotr;
+package com.corso.oop.es10.tests;
+
+import com.corso.oop.es10.utility.ScanVari;
+import com.corso.oop.es10.entities.*;
 
 public class Menu {
 

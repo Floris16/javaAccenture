@@ -1,19 +1,21 @@
 package com.corso.oop.es9.entities;
 
-import com.corso.oop.es9.enums.*;
-
 public abstract class Animale {
-	String nome;
-	TipologiaAnimale tipo;
-	SpecieAnimale specie;
-	String verso;
+	private String nome;
 	
 	public abstract String verso();
 	
 	public abstract String doveVivo();
 
-	@Override
-	public abstract String toString();
+	public String getNome() {
+		return nome;
+	}
+
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+
+	
 	
 	
 	

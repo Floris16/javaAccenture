@@ -1,5 +1,6 @@
-package com.corso.oop.es9.entities;
+package com.corso.oop.es9.subentities;
 
+import com.corso.oop.es9.entities.Animale;
 import com.corso.oop.es9.interfaces.*;
 
 public class Anatra extends Animale implements Acquatico, Volatile {
@@ -16,13 +17,13 @@ public class Anatra extends Animale implements Acquatico, Volatile {
 
 	@Override
 	public String toString() {
-		// TODO Auto-generated method stub
-		return null;
+		return "Anatra [nome=" + this.getNome() + ", verso()=" + verso() + ", doveVivo()=" + doveVivo() + ", vola()=" + vola()
+				+ ", nuota()=" + nuota() + "]";
 	}
 
 	public String vola() {
 		// TODO Auto-generated method stub
-		return Volatile.super.vola();
+		return "sto volando";
 	}
 
 	@Override

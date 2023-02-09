@@ -1,5 +1,6 @@
-package com.corso.oop.es9.entities;
+package com.corso.oop.es9.subentities;
 
+import com.corso.oop.es9.entities.Animale;
 import com.corso.oop.es9.interfaces.Terrestre;
 
 public class Cane extends Animale implements Terrestre {
@@ -23,8 +24,8 @@ public class Cane extends Animale implements Terrestre {
 
 	@Override
 	public String toString() {
-		// TODO Auto-generated method stub
-		return null;
+		return "Cane [nome=" + this.getNome() + ", verso()=" + verso() + ", corri()=" + corri() + ", doveVivo()=" + doveVivo()
+				+ "]";
 	}
 
 	

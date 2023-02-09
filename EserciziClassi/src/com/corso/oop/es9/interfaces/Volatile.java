@@ -1,7 +1,9 @@
 package com.corso.oop.es9.interfaces;
 
 public interface Volatile {
-	public default String vola() {
-		return "sto volando";
+	public String vola();
+	
+	public default String doveVivo() {
+		return "vivo nel cielo";
 	}
 }

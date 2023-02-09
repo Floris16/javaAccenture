@@ -5,5 +5,8 @@ public interface Acquatico {
 		return "sto nuotando";
 	}
 	
+	public default String doveVivo() {
+		return "vivo in acqua";
+	}
 	
 }
