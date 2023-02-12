@@ -35,8 +35,7 @@ public class Ordine {
 
 	@Override
 	public String toString() {
-		return "Ordine [numeroTavolo=" + numeroTavolo + ", elencoPizze=" + elencoPizze + "]";
+		return "Ordine [numeroTavolo=" + numeroTavolo + ", elencoPizze=" + elencoPizze + ", totale=" + getTotale()
+				+ "]";
 	}
-	
-	
 }

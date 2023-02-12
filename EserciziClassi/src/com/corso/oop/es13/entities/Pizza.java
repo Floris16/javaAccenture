@@ -38,7 +38,7 @@ public class Pizza {
 
 	@Override
 	public String toString() {
-		return "Pizza [nome=" + nome + ", ingredienti=" + ingredienti + "]";
+		return "Pizza [nome=" + nome + ", ingredienti=" + ingredienti + "]\n";
 	}
 	
 	
