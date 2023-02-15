@@ -65,4 +65,10 @@ public class Utilities {
 		Random rng = new Random();
 		return rng.nextInt();
 	}
+	
+	public static double leggiDouble(String str) {
+		System.out.println(str);
+		Scanner sc = new Scanner(System.in);
+		return sc.nextDouble();
+	}
  }
