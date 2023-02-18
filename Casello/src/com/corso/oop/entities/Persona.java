@@ -9,14 +9,16 @@ public class Persona implements SoggettoPagante{
 	private String cognome;
 	public static final double TARIFFA = 2.5;
 	private LocalDateTime oraIngresso;
+	private LocalDateTime oraUscita;
 	
 	public Persona(String nome, String cognome, LocalDateTime oraIngresso) {
 		super();
 		this.nome = nome;
 		this.cognome = cognome;
 		this.oraIngresso = oraIngresso;
+		this.oraUscita = null;
 	}
-
+	
 	public String getNome() {
 		return nome;
 	}
@@ -40,15 +42,32 @@ public class Persona implements SoggettoPagante{
 	}
 
 	@Override
-	public LocalDateTime getOra() {
+	public LocalDateTime getOraIngresso() {
 		// TODO Auto-generated method stub
 		return this.oraIngresso;
 	}
 
 	@Override
-	public void setOra(LocalDateTime ora) {
+	public void setOraIngresso(LocalDateTime ora) {
 		// TODO Auto-generated method stub
 		this.oraIngresso=ora;
 	}
+
+	public LocalDateTime getOraUscita() {
+		return oraUscita;
+	}
+
+	public void setOraUscita(LocalDateTime oraUscita) {
+		this.oraUscita = oraUscita;
+	}
+
+	@Override
+	public String toString() {
+		return "Persona [nome=" + nome + ", cognome=" + cognome + ", oraIngresso=" + oraIngresso + ", oraUscita="
+				+ oraUscita + ", getTariffa()=" + getTariffa() + "]";
+	}
 	
+	public String persona() {
+		return "Persona [nome=" + nome + ", cognome=" + cognome + "]";
+	}
 }

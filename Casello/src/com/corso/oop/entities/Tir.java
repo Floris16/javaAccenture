@@ -4,13 +4,14 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 
 import com.corso.oop.exceptions.*;
-import com.corso.oop.interfaces.SoggettoPagante;
+import com.corso.oop.interfaces.*;
 
-public class Tir implements SoggettoPagante{
+public class Tir implements SoggettoPagante, Veicolo{
 	private String targa;
 	private ArrayList<Persona> aBordo;
 	private double merceABordo;
 	private LocalDateTime oraIngresso;
+	private LocalDateTime oraUscita;
 	private final static int MAXPASSEGGERI = 9; //https://it.wikipedia.org/wiki/Autocarro#Caratteristiche
 	private final static int MAXCAPIENZA = 32;
 	private final static double TARIFFAP = 12.5;
@@ -25,6 +26,7 @@ public class Tir implements SoggettoPagante{
 		else
 			throw new TooHeavyException();
 		this.oraIngresso=oraIngresso;
+		this.oraUscita=null;
 		this.aBordo = new ArrayList<>();
 	}
 	
@@ -108,20 +110,34 @@ public class Tir implements SoggettoPagante{
 
 	@Override
 	public String toString() {
-		return "Tir [targa=" + targa + ", aBordo=" + aBordo + ", merceABordo=" + merceABordo + ", getTariffa()="
-				+ getTariffa() + "]";
+		return "Tir [targa=" + targa + ", aBordo=" + aBordo + ", merceABordo=" + merceABordo + ", oraIngresso="
+				+ oraIngresso + ", oraUscita=" + oraUscita + ", getTariffa()=" + getTariffa() + "]";
 	}
 
 	@Override
-	public LocalDateTime getOra() {
+	public LocalDateTime getOraIngresso() {
 		// TODO Auto-generated method stub
 		return this.oraIngresso;
 	}
 
 	@Override
-	public void setOra(LocalDateTime ora) {
+	public void setOraIngresso(LocalDateTime ora) {
 		// TODO Auto-generated method stub
 		this.oraIngresso=ora;
+	}
+
+	public LocalDateTime getOraUscita() {
+		return oraUscita;
+	}
+
+	public void setOraUscita(LocalDateTime oraUscita) {
+		this.oraUscita = oraUscita;
+	}
+
+	@Override
+	public ArrayList<Persona> getPasseggeri() {
+		// TODO Auto-generated method stub
+		return aBordo;
 	}
 	
 	

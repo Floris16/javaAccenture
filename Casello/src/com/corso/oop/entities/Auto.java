@@ -5,13 +5,14 @@ import java.util.ArrayList;
 
 import com.corso.oop.enums.CategoriaAuto;
 import com.corso.oop.exceptions.*;
-import com.corso.oop.interfaces.SoggettoPagante;
+import com.corso.oop.interfaces.*;
 
-public class Auto implements SoggettoPagante {
+public class Auto implements Veicolo {
 	private String targa;
 	private CategoriaAuto tipo;
 	private ArrayList<Persona> aBordo;
 	private LocalDateTime oraIngresso;
+	private LocalDateTime oraUscita;
 	
 
 	public Auto(CategoriaAuto tipo, String targa, LocalDateTime oraIngresso) {
@@ -20,7 +21,9 @@ public class Auto implements SoggettoPagante {
 		this.tipo = tipo;
 		this.aBordo = new ArrayList<>();
 		this.oraIngresso = oraIngresso;
+		this.setOraUscita(null);
 	}
+	
 
 	public void addPasseggero(String nome, String cognome) throws TooManyPassengersException{
 		if (this.aBordo.size()<this.tipo.getCAPIENZAMASSIMA())
@@ -63,21 +66,43 @@ public class Auto implements SoggettoPagante {
 
 	@Override
 	public String toString() {
-		return "Auto [targa=" + targa + ", tipo=" + tipo + ", aBordo=" + aBordo + ", getTariffa()=" + getTariffa()
-				+ ", getTipo()=" + getTipo() + "]";
+		return "Auto [targa=" + targa + ", tipo=" + tipo + ", aBordo=" + aBordo() + ", oraIngresso=" + oraIngresso
+				+ ", oraUscita=" + oraUscita + ", getTariffa()=" + getTariffa() + "]";
 	}
 
 	@Override
-	public LocalDateTime getOra() {
+	public LocalDateTime getOraIngresso() {
 		// TODO Auto-generated method stub
 		return this.oraIngresso;
 	}
 
 	@Override
-	public void setOra(LocalDateTime ora) {
+	public void setOraIngresso(LocalDateTime ora) {
 		// TODO Auto-generated method stub
 		this.oraIngresso=ora;
 	}
 
-	
+	public LocalDateTime getOraUscita() {
+		return oraUscita;
+	}
+
+	public void setOraUscita(LocalDateTime oraUscita) {
+		this.oraUscita = oraUscita;
+	}
+
+	public String aBordo() {
+		String s = "[";
+		for (Persona p : aBordo) {
+			s+=p.persona();
+		}
+		s+="]";
+		return s;
+	}
+
+
+	@Override
+	public ArrayList<Persona> getPasseggeri() {
+		// TODO Auto-generated method stub
+		return aBordo;
+	}
 }

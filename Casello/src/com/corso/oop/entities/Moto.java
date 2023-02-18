@@ -4,14 +4,15 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 
 import com.corso.oop.exceptions.*;
-import com.corso.oop.interfaces.SoggettoPagante;
+import com.corso.oop.interfaces.*;
 
-public class Moto implements SoggettoPagante{
-	private String targa;
+public class Moto implements SoggettoPagante, Veicolo{
+	private String targa; 
 	private ArrayList<Persona> aBordo;
 	public final static double TARIFFA = 3.5;
 	private final static int MAXPASSEGGERI = 2;
 	private LocalDateTime oraIngresso;
+	private LocalDateTime oraUscita;
 	
 	
 	public Moto(String targa, LocalDateTime oraIngresso) {
@@ -19,6 +20,7 @@ public class Moto implements SoggettoPagante{
 		this.targa = targa;
 		this.aBordo = new ArrayList<Persona>();
 		this.oraIngresso = oraIngresso;
+		this.oraUscita = null;
 	}
 	
 	public void addPasseggero(String nome, String cognome) throws TooManyPassengersException {
@@ -68,19 +70,42 @@ public class Moto implements SoggettoPagante{
 
 	@Override
 	public String toString() {
-		return "Moto [targa=" + targa + ", aBordo=" + aBordo + ", getTariffa()=" + getTariffa() + "]";
+		return "Moto [targa=" + targa + ", aBordo=" + aBordo() + ", oraIngresso=" + oraIngresso + ", oraUscita="
+				+ oraUscita + ", getTariffa()=" + getTariffa() + "]";
 	}
 
 	@Override
-	public LocalDateTime getOra() {
+	public LocalDateTime getOraIngresso() {
 		// TODO Auto-generated method stub
 		return this.oraIngresso;
 	}
 
 	@Override
-	public void setOra(LocalDateTime ora) {
+	public void setOraIngresso(LocalDateTime ora) {
 		// TODO Auto-generated method stub
 		this.oraIngresso = ora;
+	}
+
+	public LocalDateTime getOraUscita() {
+		return oraUscita;
+	}
+
+	public void setOraUscita(LocalDateTime oraUscita) {
+		this.oraUscita = oraUscita;
+	}
+	
+	public String aBordo() {
+		String s = "[";
+		for (Persona p : aBordo) {
+			s+=p.persona();
+		}
+		s+="]";
+		return s;
+	}
+
+	@Override
+	public ArrayList<Persona> getPasseggeri() {
+		return aBordo;
 	}
 	
 	

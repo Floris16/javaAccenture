@@ -1,10 +1,11 @@
 package com.corso.oop.entities;
 
+import java.time.Duration;
 import java.time.LocalDateTime;
 import java.util.LinkedList;
 
 import com.corso.oop.exceptions.*;
-import com.corso.oop.interfaces.SoggettoPagante;
+import com.corso.oop.interfaces.*;
 
 public class Casello {
 	private double cassa;
@@ -21,7 +22,7 @@ public class Casello {
 	
 	public void aggiungiInCoda(SoggettoPagante transitante) {
 		coda.addLast(transitante);
-		
+
 		try {
 			riceviPagamento(transitante);
 		} catch (CodaVuotaException e) {
@@ -29,10 +30,24 @@ public class Casello {
 		}
 	}
 	
+	public void aggiungiInCoda(Veicolo transitante) throws PasseggeroNotFoundException {
+		if (transitante.getPasseggeri().size()==0)
+			throw new PasseggeroNotFoundException();
+		else {
+			coda.addLast(transitante);
+
+			try {
+				riceviPagamento(transitante);
+			} catch (CodaVuotaException e) {
+				e.getMessage();
+			}
+		}
+	}
+	
 	public void riceviPagamento(SoggettoPagante transitante) throws CodaVuotaException {
 		try {
 			cassa+=transitante.getTariffa();
-		}catch(Exception cde) {
+		}catch(Exception e) {
 			throw new CodaVuotaException();
 		}
 	}
@@ -47,7 +62,23 @@ public class Casello {
 		this.orologio.plusMinutes(minuti);
 	}
 	
-	public void rimuovi() {
-		this.coda.removeFirst();
+	public void rimuovi() throws CodaVuotaException{
+		try {
+			LocalDateTime oraUscita = LocalDateTime.now();
+			System.out.println("Il soggetto ha attraversato il casello in " + Duration.between(this.coda.getFirst().getOraIngresso(),oraUscita));
+			this.coda.getFirst().setOraUscita(oraUscita);
+			System.out.println("Rimosso: " + this.coda.getFirst());
+			
+			this.coda.removeFirst();
+		}catch(Exception e) {
+			throw new CodaVuotaException();
+		}
 	}
+
+	@Override
+	public String toString() {
+		return "Casello [cassa=" + cassa + ", coda=" + coda + ", orologio=" + orologio + "]";
+	}
+	
+	
 }
