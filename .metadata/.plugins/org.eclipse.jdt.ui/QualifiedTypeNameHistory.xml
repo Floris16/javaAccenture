@@ -30,4 +30,7 @@
     <fullyQualifiedTypeName name="com.corso.oop.entities.Bevanda"/>
     <fullyQualifiedTypeName name="com.corso.oop.utilities.Utilities"/>
     <fullyQualifiedTypeName name="java.lang.Integer"/>
+    <fullyQualifiedTypeName name="java.io.NotActiveException"/>
+    <fullyQualifiedTypeName name="com.corso.oop.interfaces.SoggettoPagante"/>
+    <fullyQualifiedTypeName name="com.corso.oop.exceptions.NotAVeichleException"/>
 </qualifiedTypeNameHistroy>

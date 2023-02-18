@@ -20,14 +20,14 @@ public class Casello {
 		this.orologio = LocalDateTime.now();
 	}
 	
-	public void aggiungiInCoda(SoggettoPagante transitante) {
+	public void aggiungiInCoda(SoggettoPagante transitante) throws CodaVuotaException {
 		coda.addLast(transitante);
 
-		try {
-			riceviPagamento(transitante);
-		} catch (CodaVuotaException e) {
-			e.getMessage();
-		}
+//		try {
+		riceviPagamento(transitante);
+//		} catch (CodaVuotaException e) {
+//			e.getMessage();
+//		}
 	}
 	
 	public void aggiungiInCoda(Veicolo transitante) throws PasseggeroNotFoundException {

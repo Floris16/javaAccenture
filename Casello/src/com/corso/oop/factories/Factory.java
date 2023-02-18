@@ -25,22 +25,15 @@ public abstract class Factory {
 		char[] caratteriTarga = new char[7];
 		
 		caratteriTarga[0] = (char) (rng.nextInt(26) + 65);
+		caratteriTarga[1] = (char) (rng.nextInt(26) + 65);
+		caratteriTarga[2] = (char) (rng.nextInt(10) + 48);
+		caratteriTarga[3] = (char) (rng.nextInt(10) + 48);
+		caratteriTarga[4] = (char) (rng.nextInt(10) + 48);
+		caratteriTarga[5] = (char) (rng.nextInt(26) + 65);
+		caratteriTarga[6] = (char) (rng.nextInt(26) + 65);
 		
 		
-		
-		String targa = ;
-		
-		/*
-		 * 
-		 * 
-		 * 
-		 * 
-		 * 
-		 * 
-		 */
-		
-		
-		
+		String targa = new String (caratteriTarga);
 		
 		return targa;
 		

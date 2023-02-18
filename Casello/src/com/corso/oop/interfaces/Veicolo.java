@@ -6,4 +6,5 @@ import com.corso.oop.entities.Persona;
 
 public interface Veicolo extends SoggettoPagante {
 	public ArrayList<Persona> getPasseggeri();
+	public void addPasseggeri (SoggettoPagante s);
 }

@@ -1,26 +1,29 @@
 package com.corso.oop.tests;
 
-import com.corso.oop.entities.Casello;
+import com.corso.oop.entities.*;
 import com.corso.oop.exceptions.CodaVuotaException;
+import com.corso.oop.exceptions.NotAVeichleException;
 import com.corso.oop.exceptions.TooHeavyException;
 import com.corso.oop.factories.Factory;
-import com.corso.oop.interfaces.SoggettoPagante;
+import com.corso.oop.interfaces.*;
 import com.corso.oop.utilities.Utilities;
 
 public class Menu {
-	public Menu() {
+	public Menu() throws CodaVuotaException {
 		Casello casello = new Casello(0);
 		int scelta, transitante;
 		String nome, cognome;
 		SoggettoPagante s = null;
+		Veicolo v = null;
 		
 		do {
 			System.out.println("Menù\n"
 					+"1)Crea nuovo soggetto transitante\n"
 					+"2)Aggiungi transitante in coda\n"
-					+"3)Aggiorna l'orologio\n"
-					+"4)Rimuovi transitante dalla coda\n"
-					+"5)Stampa casello\n"
+					+"3)Aggiungi persona in veicolo\n"
+					+"4)Aggiorna l'orologio\n"
+					+"5)Rimuovi transitante dalla coda\n"
+					+"6)Stampa casello\n"
 					+"0)Esci dal programma");
 			
 			scelta=Utilities.leggiInt("Fai la tua scelta");
@@ -37,20 +40,20 @@ public class Menu {
 				switch (transitante) {
 				case 1:
 					s = Factory.factoryPersona();
-					System.out.println(s.toString());
+					System.out.println(v.toString());
 					break;
 				case 2:
-					s = Factory.factoryAuto();
-					System.out.println(s.toString());
+					v = Factory.factoryAuto();
+					System.out.println(v.toString());
 					break;
 				case 3:
-					s = Factory.factoryMoto();
-					System.out.println(s.toString());
+					v = Factory.factoryMoto();
+					System.out.println(v.toString());
 					break;
 				case 4:
 					try {
-						s = Factory.factoryTir();
-						System.out.println(s.toString());
+						v = Factory.factoryTir();
+						System.out.println(v.toString());
 					} catch (TooHeavyException e) {
 						e.getMessage();
 					}
@@ -62,17 +65,24 @@ public class Menu {
 			case 2:
 				casello.aggiungiInCoda(s);
 				break;
-			case 3:
-				casello.aggiornaOre(Utilities.leggiInt("Ore?"), Utilities.leggiInt("Minuti?"));
+			case 3: 
+				if (s == null) {
+					System.err.println("Nessun passeggero creato, prima creane uno");
+					break;
+				}
+				v.addPasseggeri(s);
 				break;
 			case 4:
+				casello.aggiornaOre(Utilities.leggiInt("Ore?"), Utilities.leggiInt("Minuti?"));
+				break;
+			case 5:
 				try {
 					casello.rimuovi();
 				} catch (CodaVuotaException e) {
 					// TODO Auto-generated catch block
 					e.getMessage();
 				}
-			case 5:
+			case 6:
 				casello.toString();
 				break;
 			case 0:

@@ -107,6 +107,20 @@ public class Moto implements SoggettoPagante, Veicolo{
 	public ArrayList<Persona> getPasseggeri() {
 		return aBordo;
 	}
+
+	@Override
+	public void addPasseggeri(SoggettoPagante s) {
+		addPasseggeri(s);
+	}
+	
+	public void addPasseggeri (Persona s) {
+		try {
+			addPasseggero(s.getNome(), s.getCognome());
+		} catch (TooManyPassengersException e) {
+			// TODO Auto-generated catch block
+			e.getMessage();
+		}
+	}
 	
 	
 	
