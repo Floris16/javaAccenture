@@ -107,10 +107,6 @@ public class Auto implements Veicolo {
 	}
 	
 	@Override
-	public void addPasseggeri(SoggettoPagante s) {
-		addPasseggeri(s);
-	}
-	
 	public void addPasseggeri (Persona s) {
 		try {
 			addPasseggero(s.getNome(), s.getCognome());

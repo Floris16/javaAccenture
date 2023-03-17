@@ -20,27 +20,23 @@ public class Casello {
 		this.orologio = LocalDateTime.now();
 	}
 	
-	public void aggiungiInCoda(SoggettoPagante transitante) throws CodaVuotaException {
-		coda.addLast(transitante);
-
-//		try {
-		riceviPagamento(transitante);
-//		} catch (CodaVuotaException e) {
-//			e.getMessage();
-//		}
+	public void aggiungiInCoda(SoggettoPagante transitante) throws CodaVuotaException, TransitanteNullException {
+		if (transitante!=null) {
+			coda.addLast(transitante);
+			riceviPagamento(transitante);
+		} else 
+			throw new TransitanteNullException();
 	}
 	
-	public void aggiungiInCoda(Veicolo transitante) throws PasseggeroNotFoundException {
+	public void aggiungiInCoda(Veicolo transitante) throws PasseggeroNotFoundException, TransitanteNullException, CodaVuotaException {
+		if (transitante==null)
+			throw new TransitanteNullException();
+		
 		if (transitante.getPasseggeri().size()==0)
 			throw new PasseggeroNotFoundException();
 		else {
 			coda.addLast(transitante);
-
-			try {
-				riceviPagamento(transitante);
-			} catch (CodaVuotaException e) {
-				e.getMessage();
-			}
+			riceviPagamento(transitante);
 		}
 	}
 	
