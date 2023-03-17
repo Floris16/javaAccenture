@@ -3,18 +3,21 @@ package com.corso.oop.tests;
 import com.corso.oop.entities.*;
 import com.corso.oop.exceptions.CodaVuotaException;
 import com.corso.oop.exceptions.NotAVeichleException;
+import com.corso.oop.exceptions.PasseggeroNotFoundException;
 import com.corso.oop.exceptions.TooHeavyException;
+import com.corso.oop.exceptions.TransitanteNullException;
 import com.corso.oop.factories.Factory;
 import com.corso.oop.interfaces.*;
 import com.corso.oop.utilities.Utilities;
 
 public class Menu {
-	public Menu() throws CodaVuotaException {
+	public Menu() throws CodaVuotaException, TransitanteNullException, PasseggeroNotFoundException {
 		Casello casello = new Casello(0);
 		int scelta, transitante, sel;
 		String nome, cognome;
-		SoggettoPagante s = null;
-		Veicolo v = null;
+		SoggettoPagante soggetto = null;
+		Veicolo veicolo = null;
+		Persona persona = null;
 		
 		do {
 			System.out.println("Menù\n"
@@ -39,22 +42,21 @@ public class Menu {
 						+"0)Annulla");
 				switch (transitante) {
 				case 1:
-					s = Factory.factoryPersona();
-					System.out.println(s.toString());
+					persona = Factory.factoryPersona();
+					System.out.println(persona.toString());
 					break;
 				case 2:
-					v = Factory.factoryAuto();
-					System.out.println(v.toString());
-					v.addPasseggeri(Factory.factoryPersona());
+					veicolo = Factory.factoryAuto();
+					System.out.println(veicolo.toString());
 					break;
 				case 3:
-					v = Factory.factoryMoto();
-					System.out.println(v.toString());
+					veicolo = Factory.factoryMoto();
+					System.out.println(veicolo.toString());
 					break;
 				case 4:
 					try {
-						v = Factory.factoryTir();
-						System.out.println(v.toString());
+						veicolo = Factory.factoryTir();
+						System.out.println(veicolo.toString());
 					} catch (TooHeavyException e) {
 						e.getMessage();
 					}
@@ -64,18 +66,19 @@ public class Menu {
 				}
 				break;
 			case 2:
-				casello.aggiungiInCoda(s);
+				try {
+					casello.aggiungiInCoda(soggetto);
+				} catch (TransitanteNullException tne) {
+					tne.getMessage();
+				}
+				
 				break;
 			case 3: 
-				if (s == null) {
+				if (soggetto == null) {
 					System.err.println("Nessun passeggero creato, prima creane uno");
 					break;
 				}
-				if (v == null) {
-					System.err.println("Nessun veicolo creato, prima creane uno");
-					break;
-				}
-				v.addPasseggeri(s);
+				veicolo.addPasseggeri(persona);
 				break;
 			case 4:
 				casello.aggiornaOre(Utilities.leggiInt("Ore?"), Utilities.leggiInt("Minuti?"));
@@ -88,7 +91,7 @@ public class Menu {
 					e.getMessage();
 				}
 			case 6:
-				casello.toString();
+				System.out.println(casello.toString());
 				break;
 			case 0:
 				System.out.println("Uscita in corso.");

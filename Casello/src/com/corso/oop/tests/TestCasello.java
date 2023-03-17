@@ -1,10 +1,10 @@
 package com.corso.oop.tests;
 
-import com.corso.oop.exceptions.CodaVuotaException;
+import com.corso.oop.exceptions.*;
 
 public class TestCasello {
 
-	public static void main(String[] args) throws CodaVuotaException {
+	public static void main(String[] args) throws CodaVuotaException, TransitanteNullException, PasseggeroNotFoundException {
 		Menu m = new Menu();
 	}
 

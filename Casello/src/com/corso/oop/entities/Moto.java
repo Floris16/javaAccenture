@@ -108,11 +108,6 @@ public class Moto implements SoggettoPagante, Veicolo{
 		return aBordo;
 	}
 
-	@Override
-	public void addPasseggeri(SoggettoPagante s) {
-		this.addPasseggeri(s);
-	}
-	
 	public void addPasseggeri (Persona s) {
 		try {
 			addPasseggero(s.getNome(), s.getCognome());

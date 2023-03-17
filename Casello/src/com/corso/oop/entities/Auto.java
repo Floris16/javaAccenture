@@ -107,14 +107,6 @@ public class Auto implements Veicolo {
 	}
 	
 	@Override
-	public void addPasseggeri(SoggettoPagante s) throws StackOverflowError {
-		try {
-			this.addPasseggeri(s);
-		} catch (StackOverflowError s2) {
-			s2.getCause();
-		}
-	}
-	
 	public void addPasseggeri (Persona s) {
 		try {
 			this.addPasseggero(s.getNome(), s.getCognome());
