@@ -142,7 +142,7 @@ public class Tir implements SoggettoPagante, Veicolo{
 	
 	@Override
 	public void addPasseggeri(SoggettoPagante s) {
-		addPasseggeri(s);
+		this.addPasseggeri(s);
 	}
 	
 	public void addPasseggeri (Persona s) {

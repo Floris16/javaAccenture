@@ -11,7 +11,7 @@ import com.corso.oop.utilities.Utilities;
 public class Menu {
 	public Menu() throws CodaVuotaException {
 		Casello casello = new Casello(0);
-		int scelta, transitante;
+		int scelta, transitante, sel;
 		String nome, cognome;
 		SoggettoPagante s = null;
 		Veicolo v = null;
@@ -40,11 +40,12 @@ public class Menu {
 				switch (transitante) {
 				case 1:
 					s = Factory.factoryPersona();
-					System.out.println(v.toString());
+					System.out.println(s.toString());
 					break;
 				case 2:
 					v = Factory.factoryAuto();
 					System.out.println(v.toString());
+					v.addPasseggeri(Factory.factoryPersona());
 					break;
 				case 3:
 					v = Factory.factoryMoto();
@@ -68,6 +69,10 @@ public class Menu {
 			case 3: 
 				if (s == null) {
 					System.err.println("Nessun passeggero creato, prima creane uno");
+					break;
+				}
+				if (v == null) {
+					System.err.println("Nessun veicolo creato, prima creane uno");
 					break;
 				}
 				v.addPasseggeri(s);

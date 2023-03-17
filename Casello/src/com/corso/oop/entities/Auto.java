@@ -107,13 +107,17 @@ public class Auto implements Veicolo {
 	}
 	
 	@Override
-	public void addPasseggeri(SoggettoPagante s) {
-		addPasseggeri(s);
+	public void addPasseggeri(SoggettoPagante s) throws StackOverflowError {
+		try {
+			this.addPasseggeri(s);
+		} catch (StackOverflowError s2) {
+			s2.getCause();
+		}
 	}
 	
 	public void addPasseggeri (Persona s) {
 		try {
-			addPasseggero(s.getNome(), s.getCognome());
+			this.addPasseggero(s.getNome(), s.getCognome());
 		} catch (TooManyPassengersException e) {
 			// TODO Auto-generated catch block
 			e.getMessage();

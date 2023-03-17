@@ -1,13 +1,11 @@
 package com.corso.oop.factories;
 
 import java.time.LocalDateTime;
-import java.util.ArrayList;
 import java.util.Random;
 
 import com.corso.oop.entities.*;
 import com.corso.oop.enums.CategoriaAuto;
 import com.corso.oop.exceptions.TooHeavyException;
-import com.corso.oop.utilities.Utilities;
 
 public abstract class Factory {
 	
